@@ -12,6 +12,7 @@ using namespace std;
 class EXPR{
     public:
     virtual string toString() = 0;
+    virtual int calculate() = 0;
     // virtual int evaluate() = 0;
 
 };
@@ -19,9 +20,9 @@ class EXPR{
 class MEXPR : public EXPR{
     public:
     EXPR *l, *r;
- 
     string toString() {return "(" + l->toString() + " * " + r->toString() + ")";}
     MEXPR(EXPR *l, EXPR *r) : l(l), r(r) { }
+    int calculate() { return l->calculate() * r->calculate();}
 };
 
 class AEXPR : public EXPR{
@@ -29,6 +30,7 @@ class AEXPR : public EXPR{
     EXPR *l, *r; 
     string toString() {return "(" + l->toString() + " + " + r->toString() + ")";}
     AEXPR(EXPR *l, EXPR *r) : l(l), r(r) { }
+    int calculate() { return l->calculate() + r->calculate();}
 };
 
 class DEXPR : public EXPR{
@@ -36,6 +38,7 @@ class DEXPR : public EXPR{
     EXPR *l, *r; 
     string toString() {return "(" + l->toString() + " / " + r->toString() + ")";}
     DEXPR(EXPR *l, EXPR *r) : l(l), r(r) { }
+    int calculate() { return l->calculate() / r->calculate();}
 };
 
 class SEXPR : public EXPR{
@@ -43,6 +46,7 @@ class SEXPR : public EXPR{
     EXPR *l, *r; 
     string toString() {return "(" + l->toString() + " - " + r->toString() + ")";}
     SEXPR(EXPR *l, EXPR *r) : l(l), r(r) { }
+    int calculate() { return l->calculate() - r->calculate();}
 };
 
 
@@ -52,6 +56,7 @@ class INT : public EXPR{
     public:
     INT(int n) : num(n) { }
     string toString() { return to_string(num); }
+    int calculate() { return num;}
 };
 
 static EXPR *M(EXPR *l, EXPR *r) {return new MEXPR(l, r);}
@@ -62,8 +67,9 @@ static EXPR *I(int n) {return new INT(n);}
 int main(void){
 
     
-    auto example = S ( D ( A ( M ( I(4), I(5)), I(5)), I(0)), I(575));
+    auto example = S ( D ( A ( M ( I(4), I(5)), I(5)), I(5)), I(575));
     cout << example->toString() << endl;
+    cout << example->calculate() << endl;
     //cout << example->evaluate() << endl;
     return 0;
 }
