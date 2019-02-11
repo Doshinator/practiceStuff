@@ -1,0 +1,45 @@
+Doshis-MacBook-Pro:find_firstAndLastPositionOfElementinSortedArray doshi$ ./main 
+Input: nums = [5 7 7 8 8 10 ] target = 7
+Segmentation fault: 11
+Doshis-MacBook-Pro:find_firstAndLastPositionOfElementinSortedArray doshi$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Doshis-MacBook-Pro:find_firstAndLastPositionOfElementinSortedArray doshi$ make
+make: Nothing to be done for `all'.
+Doshis-MacBook-Pro:find_firstAndLastPositionOfElementinSortedArray doshi$ ./main 
+Input: nums = [5 7 7 8 8 10 ] target = 7
+Segmentation fault: 11
+Doshis-MacBook-Pro:find_firstAndLastPositionOfElementinSortedArray doshi$ make
+gcc -c findFirst.c
+gcc findFirst.o -o main
+Doshis-MacBook-Pro:find_firstAndLastPositionOfElementinSortedArray doshi$ ./main 
+Input: nums = [5 7 7 8 8 10 ] target = 8
+
+Output : [3, 4]
+Doshis-MacBook-Pro:find_firstAndLastPositionOfElementinSortedArray doshi$ 
+
+
+
+
+
+
+
+
+
