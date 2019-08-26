@@ -1,3 +1,3 @@
 # practiceStuff
 
-Practice programming stuff
+Leetcode easy, medium, hard programming challenges
